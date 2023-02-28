@@ -1,0 +1,87 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "zScript",
+	"patterns": [
+		{"include": "#keywords"},
+		{"include": "#strings"},
+		{"include": "#comments"},
+		{"include": "#operators"},
+		{"include": "#numbers"},
+		{"include": "#variables"},
+		{"include": "#functions"}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.zscript",
+				"match": "\\b(if|while|for|return|break|continue|do|def)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.zscript",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.zscript",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.zscript",
+					"begin": "//",
+					"end": "\\n"
+				},
+				{
+					"name": "comment.block.zscript",
+					"begin": "/\\*",
+					"end": "\\*/"
+				}
+			]
+		},
+		"operators": {
+			"patterns": [
+				{
+					"match": "(\\&&\\||\\>\\>=\\<\\<=\\==)",
+					"name": "keyword.operator.zscript"
+				},
+				{
+					"match": "([\\+\\-\\*\\/\\&\\|\\>\\<\\=])",
+					"name": "keyword.operator.zscript"
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"match": "(-)?[0-9.]+\\b",
+					"name": "constant.numeric"
+				}
+			]
+		},
+		"functions": {
+			"patterns": [
+				{
+          			"match": "([A-Za-z_][A-Za-z0-9_]*(?=\\())",
+					"name": "support.function.stonescript"
+				}
+			]
+		},
+		"variables":{
+			"patterns": [
+				{
+					"match": "this",
+					"name": "variable.parameter"
+				},
+				{
+					"match": "(((?<=\\().+?(?=,))|((?<=,\\s).+?(?=,))|((?<=,\\s).+?(?=\\))))",
+					"name": "constant.character.for-generator.stonescript"
+				}
+			]
+		}
+	},
+	"scopeName": "source.zs"
+}
