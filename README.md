@@ -1,4 +1,4 @@
-# zscript README
+# zscript
 
 zScript description...
 
