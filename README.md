@@ -1,7 +1,3 @@
-# zscript
-
-zScript description...
-
 ## Features
 
 > Idk
